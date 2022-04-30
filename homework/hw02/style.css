@@ -254,11 +254,11 @@ article{
 @media screen and (max-width: 900px) {
     .artist-card {
         width: 50%;
-        height: auto;
-    }
+        height: auto;}
+}
 
 @media screen and (max-width: 1000px) {
     .artist-card{
         width: 33%;
-    }
-
+}
+}
