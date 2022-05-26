@@ -35,7 +35,7 @@ const getTracks = (term) => {
             for (const track of tracks) {
                     document.querySelector('#tracks').innerHTML +=
                         `<button class="track-item preview" data-preview-track="${track.preview_url}">
-                            <img src="${track.album.image_url}" alt = "Image of Searched Track">
+                            <img src="${track.album.image_url}" alt = "Image of Searched Album">
                             <i class="fas play-track fa-play" aria-hidden="true"></i>
                             <div class="label">
                                 <h2>${track.name}</h2>
@@ -133,6 +133,9 @@ const getArtistHTML = (data) => {
 const handleTrackClick = (ev) => {
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
     console.log(previewUrl);
+    document.querySelector('#current-track').innerHTML = ev.currentTarget.innerHTML;
+    audioPlayer.setAudioFile(ev.currentTarget.getAttribute('data-preview-track'));
+    audioPlayer.play();
 }
 
 document.querySelector('#search').onkeyup = (ev) => {
