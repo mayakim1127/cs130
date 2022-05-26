@@ -17,24 +17,30 @@ const search = (ev) => {
 }
 
 const getTracks = (term) => {
+    document.querySelector('#tracks').innerHTML = "";
+
     console.log(`
         get tracks from spotify based on the search term
         "${term}" and load them into the #tracks section 
         of the DOM...`);
-    document.querySelector('#tracks').innerHTML = "";
-    console.log('about to fetch!');
-    fetch('https://www.apitutor.org/spotify/simple/v1/search?type=track&limit=5&q='+ term)
+
+    fetch('https://www.apitutor.org/spotify/simple/v1/search?type=track&q=' + term)
         .then(response => response.json())
         .then(tracks => {
             console.log(tracks);
             counter = 0;
             if (tracks.length === 0) {
-                document.querySelector('#tracks').innerHTML =
-                `<p>No tracks found for "${term}"</p>`
+                document.querySelector('#tracks').innerHTML +=
+                `
+                <p>No tracks found for "${term}"</p>
+                `;
             }
             for (const track of tracks) {
                     document.querySelector('#tracks').innerHTML +=
-                        `<button class="track-item preview" data-preview-track="${track.preview_url}">
+                    `<p>${track.name}</p>`;
+                    document.querySelector('#tracks').innerHTML +=
+                        `<button class="track-item preview" data-preview-track="${track.preview_url}"
+                        onclick="handleTrackClick(event);">
                             <img src="${track.album.image_url}" alt = "Image of Searched Album">
                             <i class="fas play-track fa-play" aria-hidden="true"></i>
                             <div class="label">
@@ -131,12 +137,15 @@ const getArtistHTML = (data) => {
 }
 
 const handleTrackClick = (ev) => {
-    const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
+    const previewUrl = ev.currentTarget.getAttribute("data-preview-track");
     console.log(previewUrl);
-    document.querySelector('#current-track').innerHTML = ev.currentTarget.innerHTML;
-    audioPlayer.setAudioFile(ev.currentTarget.getAttribute('data-preview-track'));
+    audioPlayer.setAudioFile(previewUrl);
     audioPlayer.play();
+    document.querySelector('#current-track').innerHTML = ev.currentTarget.innerHTML
 }
+
+
+
 
 document.querySelector('#search').onkeyup = (ev) => {
     // Number 13 is the "Enter" key on the keyboard
