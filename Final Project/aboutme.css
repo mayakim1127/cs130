@@ -32,3 +32,21 @@ nav{
     column-gap: 40px;
     padding-top: 25px;
 }
+main {
+    display: grid;
+    grid-template-columns: 1 ;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+       "a"
+       "b";
+       row-gap: 20px;
+       column-gap: 0px;
+}
+
+.photo-section {
+    grid-area: a;
+}
+
+p {
+    grid-area: b;
+}
