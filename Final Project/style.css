@@ -38,6 +38,5 @@ display: flex;
 font-size: 25px;
 align-items: center;
 flex-direction: column;
-flex-direction: column-reverse;
 padding-top: 50px;
 }
