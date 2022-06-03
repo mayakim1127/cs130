@@ -32,57 +32,68 @@ nav{
 }
 .photo-section {
     display: grid;
-    grid-template-columns: 0.5fr 4fr ;
-    grid-template-rows: 4fr 4fr 4fr 4fr 4fr;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
     grid-template-areas:
        "a b "
        "c d" 
        "e f"
        "g h"
        "i j";
-       row-gap: 20px;
-       column-gap: 0px;
+       row-gap: 100px;
+       padding-top: 20px;
 }
 
 #Artwork1 {
 grid-area: a;
-width: 300px;
+width: 1000px;
 }
 
 #d1 {
     grid-area: b;
+    padding-top: 20px;
 }
 
 #Artwork2 {
     grid-area: c;
+    width: 1000px;
 }
 
 #d2 {
     grid-area: d;
+    padding-top: 20px;
+    
 }
 
 #Artwork3 {
     grid-area: e;
+    width: 1000px;
 }
 
 #d3 {
     grid-area: f;
+    padding-top: 20px;
+    
 }
 
 #Artwork4 {
     grid-area: g;
+    width: 1000px;
 }
 
 #d4 {
     grid-area: h;
+    padding-top: 20px;
 }
 
 #Artwork5 {
     grid-area: i;
+    width: 1000px;
 }
 
 #d5 {
     grid-area: j;
+    padding-top: 20px;
 }
 
  

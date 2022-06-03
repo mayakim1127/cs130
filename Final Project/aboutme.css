@@ -35,10 +35,12 @@ nav{
 main {
     display: grid;
     grid-template-columns: 1 ;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
     grid-template-areas:
        "a"
-       "b";
+       "b"
+       "c"
+       "d";
        row-gap: 20px;
        column-gap: 0px;
 }
@@ -47,6 +49,14 @@ main {
     grid-area: a;
 }
 
-p {
+#one {
     grid-area: b;
+}
+
+#two {
+    grid-area: c;
+}
+
+#three {
+    grid-area: d;
 }

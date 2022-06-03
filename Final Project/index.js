@@ -1,40 +1,79 @@
 
- "use strict"
+ const items = [
+	{
+		position: 0,
+		el: document.getElementById("carousel-item-1")
+	},
+	{
+		position: 1,
+		el: document.getElementById("carousel-item-2")
+	},
+	{
+		position: 2,
+		el: document.getElementById("carousel-item-3")
+	},
+	{
+		position: 3,
+		el: document.getElementById("carousel-item-4")
+	},
+    {
+		position: 4,
+		el: document.getElementById("carousel-item-5")
+	},
+    {
+		position: 5,
+		el: document.getElementById("carousel-item-6")
+	},
+];
 
+const options = {
+	activeItemPosition: 1,
+	interval: 3000,
 
- const carouselButtons = document.querySelectorAll(".carousel-btn");
- const carouselButtonLeft = document.querySelector(".btn-left");
- const carouselButtonRight = document.querySelector(".btn-right");
- const carouselImage1 = document.querySelector(".carousel-image-1");
- const carouselImage2 = document.querySelector(".carousel-image-2");
- const carouselImage3 = document.querySelector(".carousel-image-3");
- const numberOfImages = document.querySelectorAll(".carousel-image").length;
- let imageIndex = 1;
- let translateX = 0;
- 
- carouselButtonLeft.addEventListener("click", slideLeft);
- carouselButtonRight.addEventListener("click", slideRight);
- 
- function slideLeft(){
-     if (imageIndex !== 1){
-         imageIndex--;
-         translateX += 400;
-         carouselImage1.style.transform = `translateX(${translateX}px)`;
-         carouselImage2.style.transform = `translateX(${translateX}px)`;
-         carouselImage3.style.transform = `translateX(${translateX}px)`;
-     }
-     
- }
- 
- function slideRight(){
-     if (imageIndex !== numberOfImages){
-         imageIndex++;
-         translateX -= 400;
-         carouselImage1.style.transform = `translateX(${translateX}px)`;
-         carouselImage2.style.transform = `translateX(${translateX}px)`;
-         carouselImage3.style.transform = `translateX(${translateX}px)`;
-     }
-     
- }
- 
- 
+	indicators: {
+		activeClasses: "bg-white dark:bg-gray-800",
+		inactiveClasses:
+			"bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800",
+		items: [
+			{
+				position: 0,
+				el: document.getElementById("carousel-indicator-1")
+			},
+			{
+				position: 1,
+				el: document.getElementById("carousel-indicator-2")
+			},
+			{
+				position: 2,
+				el: document.getElementById("carousel-indicator-3")
+			},
+			{
+				position: 3,
+				el: document.getElementById("carousel-indicator-4")
+			},
+            {
+				position: 4,
+				el: document.getElementById("carousel-indicator-5")
+			},
+            {
+				position: 5,
+				el: document.getElementById("carousel-indicator-6")
+			},
+		]
+	},
+
+	// callback functions
+	onNext: () => {
+		console.log("next slider item is shown");
+	},
+	onPrev: () => {
+		console.log("previous slider item is shown");
+	},
+	onChange: () => {
+		console.log("new slider item has been shown");
+	}
+};
+
+const carousel = new Carousel(items, options);
+carousel.cycle();
+// carousel.pause()
